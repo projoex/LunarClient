@@ -1,0 +1,82 @@
+-- Main Start
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Lunar Client | Airport Tycoon", HidePremium = false, SaveConfig = false, IntroEnabled = true, IntroText = "Lunar Client | Airport Tycoon"})
+-- Main End
+
+-- Bools Start
+local WaitTimer = 0
+local number = 10
+local Airport = game:GetService("Players").LocalPlayer.Team.Name
+-- Bools End
+
+-- Tabs Start
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+-- Tabs End
+
+-- Values Start
+getgenv().WaitAutoCollect = true
+getgenv().NumberAutoCollect = true
+-- Values End
+
+-- Functions Start
+function WaitAutoCollect()
+    while getgenv().WaitAutoCollect == true do Wait(WaitTimer)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace")["Zednov's Tycoon Kit"].Tycoons[Airport].Essentials.Giver, 0)
+        Wait(WaitTimer)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace")["Zednov's Tycoon Kit"].Tycoons[Airport].Essentials.Giver, 1)
+        end
+    end
+
+function NumberAutoCollect()
+    while getgenv().NumberAutoCollect == true do if game:GetService("Workspace")["Zednov's Tycoon Kit"].Tycoons[Airport].Essentials.CollectorParts.Display.GUI.Amount.Text > "$"..number then
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace")["Zednov's Tycoon Kit"].Tycoons[Airport].Essentials.Giver, 0)
+        Wait(1)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace")["Zednov's Tycoon Kit"].Tycoons[Airport].Essentials.Giver, 1)
+        end
+    end
+end
+-- Functions End
+
+-- Toggles Start
+MainTab:AddToggle({
+	Name = "Auto Collect (Wait Timer)",
+	Default = false,
+	Callback = function(Value)
+		getgenv().WaitAutoCollect = Value
+        WaitAutoCollect()
+	end    
+})
+
+MainTab:AddToggle({
+	Name = "Auto Collect (Cash amount)",
+	Default = false,
+	Callback = function(Value)
+		getgenv().NumberAutoCollect = Value
+        NumberAutoCollect()
+	end    
+})
+
+-- Toggles End
+
+-- Inputs Start
+MainTab:AddTextbox({
+	Name = "Wait Timer",
+	Default = "1",
+	TextDisappear = false,
+	Callback = function(Value)
+		WaitTimer = Value
+	end	  
+})
+
+MainTab:AddTextbox({
+	Name = "Auto Collect at amount",
+	Default = "1",
+	TextDisappear = false,
+	Callback = function(Value)
+		number = Value
+	end	  
+})
