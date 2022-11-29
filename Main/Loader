@@ -1,3 +1,4 @@
+setclipboard("https://discord.gg/bDujv8tBMS")
 local games = {
     [{3440262694}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/AirportTycoon/Script",
 }
