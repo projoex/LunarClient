@@ -1,28 +1,37 @@
--- Main Start
+-- Start
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Lunar Client | Airport Tycoon", HidePremium = false, SaveConfig = false, IntroEnabled = true, IntroText = "Lunar Client | Airport Tycoon"})
--- Main End
+-- End
 
--- Bools Start
+-- Start
+OrionLib:MakeNotification({
+	Name = "Check your Clipboard!",
+	Content = "Discord copied to Clipboard: https://discord.gg/bDujv8tBMS",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+-- End
+
+-- Start
 local WaitTimer = 0
 local number = 10
 local Airport = game:GetService("Players").LocalPlayer.Team.Name
--- Bools End
+-- End
 
--- Tabs Start
+-- Start
 local MainTab = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
--- Tabs End
+-- End
 
--- Values Start
+-- Start
 getgenv().WaitAutoCollect = true
 getgenv().NumberAutoCollect = true
--- Values End
+-- End
 
--- Functions Start
+-- Start
 function WaitAutoCollect()
     while getgenv().WaitAutoCollect == true do Wait(WaitTimer)
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, game:GetService("Workspace")["Zednov's Tycoon Kit"].Tycoons[Airport].Essentials.Giver, 0)
@@ -39,9 +48,9 @@ function NumberAutoCollect()
         end
     end
 end
--- Functions End
+-- End
 
--- Toggles Start
+-- Start
 MainTab:AddToggle({
 	Name = "Auto Collect (Wait Timer)",
 	Default = false,
@@ -60,9 +69,9 @@ MainTab:AddToggle({
 	end    
 })
 
--- Toggles End
+-- End
 
--- Inputs Start
+-- Start
 MainTab:AddTextbox({
 	Name = "Wait Timer",
 	Default = "1",
@@ -80,3 +89,4 @@ MainTab:AddTextbox({
 		number = Value
 	end	  
 })
+-- End
