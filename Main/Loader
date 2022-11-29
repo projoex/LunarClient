@@ -1,0 +1,9 @@
+local games = {
+    [{3440262694}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/AirportTycoon/Script",
+}
+
+for ids, url in next, games do
+    if table.find(ids, game.PlaceId) then
+        loadstring(game:HttpGet(url))(); break
+    end
+end
