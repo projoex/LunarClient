@@ -1,6 +1,6 @@
 setclipboard("https://discord.gg/bDujv8tBMS")
 local games = {
-    [{3440262694}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/AirportTycoon/Script",
+    [{3440262694}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/Scripts/AT.lua",
     [{6778844213}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/Scripts/ERT.lua",
 }
 
