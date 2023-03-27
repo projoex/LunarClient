@@ -3,6 +3,7 @@ local games = {
     [{3440262694}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/Scripts/AT.lua",
     [{6778844213}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/Scripts/ERT.lua",
     [{9585800888}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/Scripts/PCP.lua",
+    [{6284583030}] = "https://raw.githubusercontent.com/projoex/LunarClient/main/Main/Scripts/PSX.lua",
 }
 
 for ids, url in next, games do
