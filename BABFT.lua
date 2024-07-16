@@ -30,10 +30,9 @@ local Window = ArrayField:CreateWindow({
                  end,
                  }
              },
-       Key = {"https://github.com/projoex/KeySystem/blob/main/Key"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-    }
+       Key = {"https://pastebin.com/raw/h5TxFLMr"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    } -- 
  })
  local PlayerTab = Window:CreateTab("Player", 4483362458) -- Title, Image
 
 
- -- Im just coding :)
