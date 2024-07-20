@@ -1,12 +1,33 @@
+if game.Players.LocalPlayer.Name == "projoex" or "europa822" then
+   setclipboard("ZLyjKanMSwytcg0jP535c4fFXaQAjm5")
+   end
+
 getgenv().SecureMode = false
 local ArrayField = loadstring(game:HttpGet('https://raw.githubusercontent.com/UI-Interface/ArrayField/main/Source.lua'))()
+ArrayField:Notify({
+   Title = "Loaded! ❤",
+   Content = "Thanks For loading Lunar Client",
+   Duration = 6.5,
+   Image = 18575726965,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+ },
+})
+
+local Player = game.Players.LocalPlayer
+local PlayerName = Player.Name
 local Window = ArrayField:CreateWindow({
     Name = "Lunar Client",
     LoadingTitle = "Lunar Client",
     LoadingSubtitle = "by KizzyTheDog#0437",
     ConfigurationSaving = {
        Enabled = true,
-       FolderName = Lunar, -- Create a custom folder for your hub/game
+       FolderName = "LunarClient", -- Create a custom folder for your hub/game
        FileName = "BABFT"
     },
     Discord = {
@@ -31,26 +52,26 @@ local Window = ArrayField:CreateWindow({
                  end,
                  }
              },
-       Key = {"https://raw.githubusercontent.com/projoex/KeySystem/main/Key?token=GHSAT0AAAAAACU4GLKTKVWLP5W2ENLVFWN2ZUWYQ4Q", "DevKey", "TesterKey"} -- List of keys that will be accepted by the system
+       Key = {"https://raw.githubusercontent.com/projoex/KeySystem/main/Key?token=GHSAT0AAAAAACU4GLKTKVWLP5W2ENLVFWN2ZUWYQ4Q"} -- List of keys that will be accepted by the system
        -- ZLyjKanMSwytcg0jP535c4fFXaQAjm5
     }
  })
-local PlayerTab = Window:CreateTab("Player", 4483362458) -- Title, Image
-local ScriptTab = Window:CreateTab("Scripts", 4483362458) -- Title, Image
-local SettingsTab = Window:CreateTab("Settings", 4483362458) -- Title, Image
+local PlayerTab = Window:CreateTab("Player", 18575754763) -- Title, Image
+local ScriptTab = Window:CreateTab("Scripts", 18575788890) -- Title, Image
+local SettingsTab = Window:CreateTab("Settings", 18575932426) -- Title, Image
 local PremiumButton = ScriptTab:CreateButton({
-   Name = "Premium script",
+   Name = "Premium script (Doesnt work on Solara)",
    Interact = 'Click',
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/max2007killer/Build-a-Boat-Premium-/main/OBFUSCATED.txt", true))()
       print("PremiumWorks")
    end,
 })
-local Button = ScriptTab:CreateButton({
-   Name = "Steal and load builds",
+local StealButton = ScriptTab:CreateButton({
+   Name = "Steal and load builds Wave Version (Doesnt work on Solara )",
    Interact = 'Click',
    Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/autobuildsupportsolara_IM_SIGMA.txt", true))()
+      loadstring(game:HttpGet(("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/buildaboatv2obs.txt"),true))()
    print("StealWorks")
    end,
 })
@@ -76,5 +97,51 @@ local Input = SettingsTab:CreateInput({
    end
 
    -- The variable (Text) is a string for the value in the text box
+   end,
+})
+
+local SpeedSlider = PlayerTab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {0, 100},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "Slider1",
+   Callback = function(Value1)
+      Player.Character:WaitForChild("Humanoid").WalkSpeed = Value1
+   end,
+})
+local JumpSlider = PlayerTab:CreateSlider({
+   Name = "JumpPower",
+   Range = {0, 100},
+   Increment = 1,
+   Suffix = "Jump",
+   CurrentValue = 50,
+   Flag = "Slider2",
+   Callback = function(Value2)
+      Player.Character:WaitForChild("Humanoid").JumpPower = Value2
+   end,
+})
+local HideGoldButton = PlayerTab:CreateButton({
+   Name = "Hide Gold GUI",
+   Interact = 'Click',
+   Callback = function()
+   Player.PlayerGui.GoldGui.Enabled = not Player.PlayerGui.GoldGui.Enabled
+   print("Hidden")
+   end,
+})
+local HideShopButton = PlayerTab:CreateButton({
+   Name = "Hide Shop GUI",
+   Interact = 'Click',
+   Callback = function()
+   Player.PlayerGui.ShopGui.Enabled = not Player.PlayerGui.ShopGui.Enabled
+   print("Hidden")
+   end,
+})
+local WaterDMGButton = PlayerTab:CreateButton({
+   Name = "Remove Water Damage",
+   Interact = 'Click',
+   Callback = function()
+         game.Workspace.Water:Destroy()
    end,
 })
